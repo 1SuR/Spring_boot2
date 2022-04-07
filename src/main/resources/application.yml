@@ -1,0 +1,34 @@
+#在这里面能配置的东西 都有一个规律 xxxProperties（绑定我们写的配置文件）  xxxAutoConfiguration自动配置 自动装载
+#这样我们就可以用我们自定义的配置了
+server:
+  port: 8080
+  servlet:
+    context-path: /abc
+#切换配置
+spring:
+  profiles:
+    active: test
+---
+#开发环境
+server:
+  port: 8081
+spring:
+  config:
+    activate:
+      on-profile: dev
+---
+#测试环境
+server:
+  port: 8085
+spring:
+  config:
+    activate:
+      on-profile: test
+---
+#生产环境
+server:
+  port: 8084
+spring:
+  config:
+    activate:
+      on-profile: prod
